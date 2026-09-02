@@ -1,0 +1,795 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Personnes et institutions ressources</title><meta name="data-notion-page-icon" content="📚"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%93%9A%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+} 
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="3cfae6fd-182f-80dd-a96f-d6b5b9026198" class="page sans" data-notion-page-icon="📚"><header><img class="page-cover-image" src="https://app.notion.com/images/page-cover/gradients_3.png" style="object-position:center 60%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon" data-emoji="📚"></span></div><h1 class="page-title" dir="auto"><strong>Personnes et institutions ressources</strong></h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h4 id="3cfae6fd-182f-8033-b187-ef7ae862ef78" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">Conformément à la politique de l’état dans la lutte contre les violences (violences sexuelles et sexistes, harcèlement moral, discriminations, racisme et antisémitisme) dans la fonction publique, cette fiche a été élaborée afin d’aider à l’accompagnement des personnes signalant·es et des témoins.</mark></h4><div dir="auto"><h3 id="3cfae6fd-182f-8023-a643-e503e8e4f105" class="" dir="auto">Ressources selon votre cas </h3><p id="3cfae6fd-182f-8033-927b-e430b06a28cc" class="" dir="auto"><em>(cliquez sur les flèches pour dérouler les menus dépliants)</em></p><details class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="3cfae6fd-182f-8008-8cce-d10d12f623a1" style="display:inline-block"><strong>À l’université</strong></h1></summary><div class="indented"><ul id="3cfae6fd-182f-80f1-a219-c3f873aa5719" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Cellule violences sexistes et sexuelles et harcèlement moral et discrimination UniCa et Cellule harcèlement moral, discrimination, racisme et antisémitisme UniCa : pour les victimes ou témoins ; écoute, orientation, accompagnement ;<br/></strong><em>Contact : https://univ-cotedazur.signalement.net/ ;</em></li></ul><ul id="3cfae6fd-182f-800f-b46d-fb713d17e828" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Mission handicap : </strong>handicap@univ-cotedazur.fr</li></ul><ul id="3cfae6fd-182f-8078-a184-db53c491dee9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Centre de santé universitaire : </strong>propose une consultation médicale ou un accompagnement psychologique à une personne qui s’estime victime de harcèlement sexuel ;<br/><em>Contact : https://univ-cotedazur.fr/vie-des-campus/sante-aide-sociale ;</em></li></ul><ul id="3cfae6fd-182f-80a6-9882-fd7dc8ffafd8" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Assistance sociale :</strong><ul id="3cfae6fd-182f-8096-ad0f-d38438bbbb0c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">servicesocial-personnel@univ-cotedazur.fr</li></ul><ul id="3cfae6fd-182f-80d2-826d-dbf232f2b555" class="bulleted-list" dir="auto"><li style="list-style-type:circle">ou par téléphone : 04 89 15 14 61</li></ul></li></ul><ul id="3cfae6fd-182f-8031-82f8-cf83661c405b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Référente égalité :</strong>→ Sylvie ICART<br/><em>Sylvie.ICART@univ-cotedazur.fr</em></li></ul><ul id="3cfae6fd-182f-8014-bb3a-dd07d8610c96" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Référente lutte contre les discriminations :</strong>→ Delphine CALLAGHAN<br/><em>Delphine.CALLAGHAN@univ-cotedazur.fr</em></li></ul><ul id="3cfae6fd-182f-802a-8a8b-c1b5bf3dd99f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Référent·e handicap :</strong>→ Anna-Maria SUCHINSKA<br/><em>Anna-Maria.SUCHINSKA@univ-cotedazur.fr</em></li></ul></div></details><details class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="3cfae6fd-182f-8021-8fed-f3a5d42a7bd1" style="display:inline-block">Au niveau départemental</h1></summary><div class="indented"><ul id="3cfae6fd-182f-80dc-ad2a-db3ed75e4705" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>BAPU : Bureau d’Aide Psychologique Universitaire :</strong><ul id="3cfae6fd-182f-805e-bbc7-cceef7d6c589" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><a href="mailto:contact@bapunice.org">contact@bapunice.org</a></li></ul><ul id="3cfae6fd-182f-8086-81ad-d2643799f654" class="bulleted-list" dir="auto"><li style="list-style-type:circle">04 93 87 72 78</li></ul></li></ul><ul id="3cfae6fd-182f-8096-aed5-da08d83cc464" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Unité médico-judiciaire (UMJ) :</strong> Prise en charge des victimes de VSS, consultations et rédaction de certificats médico-légaux (blessure physiques et retentissement psychologique) ;<p id="3cfae6fd-182f-8011-a88d-da9b641ca89b" class="" dir="auto"><em>Contact : tél. 04 92 03 48 21 et </em><em><a href="mailto:umjnice@chu-nice.fr">umjnice@chu-nice.fr</a></em><em> ;</em></p></li></ul><ul id="3cfae6fd-182f-802f-ba3a-dd217d264390" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Harpèges :</strong> accueil, écoute, accompagnement juridique, psychologique et social des victimes d’infractions pénales ;<p id="3cfae6fd-182f-8094-a53d-f1486a31f169" class="" dir="auto"><em>Contact :</em><em><strong> </strong></em><em>04 93 90 85 66 et </em><em><a href="mailto:serviceaideauxvictimes@harp%C3%A8ges.fr">serviceaideauxvictimes@harpèges.fr</a></em><em><strong> </strong></em><em>;</em></p></li></ul><ul id="3cfae6fd-182f-809d-bbe4-fbeb495d6230" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Association Montjoye :</strong> ce pôle socio-judiciaire assure un accueil et accompagnement juridique, social et psychologique ; gère le pénal avec le parquet qui peut les saisir pour prise en charge de la personne victime ; donne des bons de consultation gratuit pour une première consultation avec un·e avocate ;<p id="3cfae6fd-182f-80ab-9231-d5d1c6663aba" class="" dir="auto"><em>Contact :</em><em><strong> </strong></em><em>04 93 87 94 49 et </em><em><a href="mailto:aide.victimes@montjoye.org">aide.victimes@montjoye.org</a></em><em>, </em><em><a href="http://www.montjoye.org/">www.montjoye.org</a></em><em> ;</em></p></li></ul><details class="" dir="auto"><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="3cfae6fd-182f-805c-8fb6-cd9e18bdd800" style="display:inline-block">Violences sexistes et sexuelles</h2></summary><div class="indented"><ul id="3cfae6fd-182f-80f7-854f-f59ca66476cd" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>La maison des femmes des Alpes-Maritimes :</strong> accompagnement des femmes victimes de violences (parcours de soin, accompagnement social, juridique, vers le dépôt de plainte, groupes de parole et ateliers) ;<p id="3cfae6fd-182f-80f3-b703-cfc951bcb266" class="" dir="auto"><em>Contact :</em><em><strong> </strong></em><em>accueil avec et sans rendez-vous le jeudi de 9h à 17h, tél. : 04 92 03 21 10 et </em><em><a href="mailto:maisondesfemmes06@chu-nice.fr">maisondesfemmes06@chu-nice.fr</a></em><em> ;</em></p></li></ul><ul id="3cfae6fd-182f-8084-afef-d8e71edafaee" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>CIDFF06 </strong>: le centre d’Information sur les Droits des Femmes et des Familles informe, oriente et accompagne le public, en priorité les femmes, notamment dans l’accès aux droits et la lutte contre les violences sexistes ;<p id="3cfae6fd-182f-8096-8482-f59a2b0f7d95" class="" dir="auto"><em>Contact : tél. : 04 93 71 55 69 et </em><em><a href="https://alpesmaritimes.cidff.info/">https://alpesmaritimes.cidff.info/</a></em><em> ;</em></p></li></ul><ul id="3cfae6fd-182f-80cb-9133-de44d7b9a598" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Commissariats du département : </strong>accueil et écoute, soutien au dépôt de plainte, possibilité de récupérer des bons de consultations juridiques gratuits ;<ul id="3cfae6fd-182f-8027-bb8d-c18502ec7cdf" class="bulleted-list" dir="auto"><li style="list-style-type:circle">assistant·e social·e Commissariat Nice Foch : 06 08 23 20 43 ;</li></ul><ul id="3cfae6fd-182f-80fd-bd82-c8ae96fed882" class="bulleted-list" dir="auto"><li style="list-style-type:circle">assistant·e social·e commissariat Nice ouest : 06 66 13 40 25 ;</li></ul><ul id="3cfae6fd-182f-80f7-a794-e4e149b85379" class="bulleted-list" dir="auto"><li style="list-style-type:circle">assistant·e social·e Commissariat Nice Ariane et Menton : 06 66 13 76 21 ;</li></ul><ul id="3cfae6fd-182f-80e5-b53d-c01e2664ab76" class="bulleted-list" dir="auto"><li style="list-style-type:circle">assistant·e social·e Commissariat Antibes et Grasse : 06 69 13 07 54 ;</li></ul><ul id="3cfae6fd-182f-80eb-a233-c3b99c7d5f84" class="bulleted-list" dir="auto"><li style="list-style-type:circle">assistant·e social·e commissariat Cannes et Cagnes sur mer : 06 66 08 77 53 ;</li></ul></li></ul><ul id="3cfae6fd-182f-8073-a31c-f4dcd137a093" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Planning familial </strong>: pour toutes questions liées à la sexualité, à la contraception, l’IVG, les violences, les IST;<strong> </strong>Contact : tél. : 04 92 09 17 26, et <a href="mailto:mfpf.06@gmail.com.">mfpf.06@gmail.com</a> et <a href="https://www.planning-familial.org"><span style="border-bottom:0.05em solid">https://www.planning-familial.org</span></a><span style="border-bottom:0.05em solid"> ;</span></li></ul><ul id="3cfae6fd-182f-80fb-9005-fefaefa00ff5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Le Refuge 06 </strong>: la fondation, conventionnée par l&#x27;État, héberge les jeunes LGBT+, âgé·es de 14 à 25 ans et les accompagne pour les aspects social, médical, psychologique et juridique ;Contact : tél. : 09 81 93 14 82, <a href="mailto:contact@centrelgbt06.fr">contact@centrelgbt06.fr</a>; ligne d&#x27;urgence, disponible 24H/24, 7J/7 : 31.59.69.50 ;<strong> </strong><a href="https://centrelgbt06.fr/">https://centrelgbt06.fr</a> <span style="border-bottom:0.05em solid">;</span></li></ul><ul id="3cfae6fd-182f-80db-944c-c2b07e44a325" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Pass’R’elles, CCAS (centre communal d’action sociale) de la ville de Nice </strong>: accueil de jour pour victimes de violences conjugales sans RDV, accompagnement psycho-social, accès aux droits, domiciliation, actions collectives, centre d’hébergement d’urgence hommes et femmes ;<p id="3cfae6fd-182f-80ba-8c22-c28159865556" class="" dir="auto"><em>Contact :</em><em><strong> </strong></em><em>tél. :04 97 13 39 46 et </em><em><a href="mailto:pass.r.elles@ccas-nice.fr">pass.r.elles@ccas-nice.fr</a></em><em> ;</em></p></li></ul><ul id="3cfae6fd-182f-80cb-a7e2-d046393d1b22" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ALC : </strong>écoute et accompagnement des victimes de violences conjugales et de prostitution,<strong> </strong>hébergement d&#x27;urgence sur Nice ;<p id="3cfae6fd-182f-8086-a8e0-fc8d1b5d9e93" class="" dir="auto"><em>Contact : Tél. : 04 92 07 55 00 / e-mail : </em><em><a href="mailto:puip.secretariat@association-alc.org">puip.secretariat@association-alc.org</a></em><em> ;</em></p></li></ul><ul id="3cfae6fd-182f-8013-b656-c209f969db30" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Association ARPAS :</strong> le Centre départemental de prise en charge des auteurs de violences conjugales (CPCA) est en charge de l’accompagnement psychologique et social des auteurs, de l’animation de stages de responsabilisation et de lute contre les violences au sein du couple;<p id="3cfae6fd-182f-80f8-9b11-df9095297ea5" class="" dir="auto"><em>Contact : tél. : 04 93 20 67 01 et </em><em><a href="mailto:infos@arpas.eu">infos@arpas.eu</a></em><em>.</em></p></li></ul></div></details></div></details><details class="" dir="auto"><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0"><h1 id="3cfae6fd-182f-8020-917d-ef938048270e" style="display:inline-block">Au niveau national</h1></summary><div class="indented"><ul id="3cfae6fd-182f-8021-9835-e790715c5f90" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Discrimination : </strong><strong><a href="https://www.antidiscriminations.fr/">https://www.antidiscriminations.fr/</a></strong><strong> (défenseur des droits)</strong></li></ul><details class="" dir="auto"><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="3cfae6fd-182f-8098-a6ca-fac1f850a552" style="display:inline-block">Situation de racisme et antisémitisme</h2></summary><div class="indented"><ul id="3cfae6fd-182f-807b-b3a7-df7745205430" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>SOS racisme : </strong><strong><a href="https://sos-racisme.org/">https://sos-racisme.org/</a></strong></li></ul><ul id="3cfae6fd-182f-8019-ab69-cc3c0eda6453" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>MRAP : </strong><strong><a href="https://mrap.fr/">https://mrap.fr/</a></strong></li></ul><ul id="3cfae6fd-182f-808d-836e-fd2b956cdc7f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong><a href="https://valeurs-de-la-republique.reseau-canope.fr/">https://valeurs-de-la-republique.reseau-canope.fr/</a></strong></li></ul></div></details><details class="" dir="auto"><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><h2 id="3cfae6fd-182f-80c9-b685-f045c07493d4" style="display:inline-block">Situation de violences sexistes et sexuelles</h2></summary><div class="indented"><ul id="3cfae6fd-182f-80c0-b4df-e87c0b39b7ef" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Clasches </strong>: association féministe ouverte à l’ensemble des étudiant·es, doctorant·es, enseignant·es et/ou chercheur·es et personnels BIATSS qui lutte contre le harcèlement sexuel dans l’enseignement supérieur; le guide pratique pour s’informer et se défendre, <a href="https://clasches.fr/">https://clasches.fr/</a> <span style="border-bottom:0.05em solid">;</span></li></ul><ul id="3cfae6fd-182f-80cc-99d2-d9faed8ad925" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Viol femmes information </strong>: apporte aux personnes qui ont subi des violences sexuelles une écoute, un soutien, et des informations nécessaires aux différentes démarches qu’elles peuvent entreprendre ;<p id="3cfae6fd-182f-8058-9983-e441dd098a4e" class="" dir="auto"><em>Contact :</em><em><strong> </strong></em><em>tél. : 0 800 05 95 95 du lundi au vendredi, de 10h à 19h</em><em><strong> </strong></em><em>anonyme et gratuit, y compris depuis les portables. </em><em><a href="https://cfcv.asso.fr/">https://cfcv.asso.fr/</a></em><em> ;</em></p></li></ul><ul id="3cfae6fd-182f-80ce-8955-fdf2b9a09f87" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>SOS homophobie : </strong>SOS homophobie assure un service d&#x27;écoute téléphonique nationale pour les personnes victimes ou témoins, d&#x27;actes ou de discriminations lesbophobes, gayphobes, biphobes ou transphobes. Lieu d&#x27;accueil de la parole, de soutien, de conseil, d&#x27;information, la ligne permet aux appelant-e-s de sortir de l&#x27;isolement, et leur fournit des éléments qui leur donnent la possibilité d&#x27;agir ; <p id="3cfae6fd-182f-803b-b4af-fcbaa30fa8c3" class="" dir="auto"><em>Contact : </em><em><a href="mailto:sos-asca@sos-homophobie.org">sos-asca@sos-homophobie.org</a></em><em> et </em><em><a href="https://www.sos-homophobie.org"><span style="border-bottom:0.05em solid">https://www.sos-homophobie.org</span></a></em><em> ;</em></p></li></ul><ul id="3cfae6fd-182f-806c-a351-f084ccb8c08f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>ACCUEIL FEMMES SOLIDARITE </strong>: veille à l&#x27;accès aux droits juridiques, sociaux, à la santé, la prise en charge psychologique, la prévention par des actions de sensibilisation et d&#x27;information auprès des jeunes ;<p id="3cfae6fd-182f-8061-b09e-dbbb5747d90e" class="" dir="auto"><em>Contact : tél. : 04 93 52 17 81, </em><em><a href="https://www.xn--solidaritfemme-jkb.org/">https://www.solidaritéfemme.org</a></em><em> ;</em></p></li></ul></div></details></div></details></div><h1 id="3cfae6fd-182f-8012-86fc-d303733f7fd4" class="" dir="auto"><mark class="highlight-teal" data-notion-highlight="teal">Numéros utiles</mark></h1><ul id="3cfae6fd-182f-805d-b736-ff8dd7c28330" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>31 14 </strong>prévention suicide</li></ul><ul id="3cfae6fd-182f-80ef-b65c-eff50ccd6d81" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Numéro d’écoute national, 3919: </strong>destiné aux femmes victimes de violences, à leur entourage et aux professionnel·les concerné·es ;<p id="3cfae6fd-182f-8078-8d78-f0655a912813" class="" dir="auto"><em>Contact :</em><em><strong> </strong></em><em>appel anonyme et gratuit 7 jours sur 7, 24h/24 ;</em></p></li></ul><ul id="3cfae6fd-182f-8077-ad99-f6c282cfca99" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Planning Familial : </strong>numéro vert : 0800 08 11 11</li></ul><ul id="3cfae6fd-182f-8024-96e3-cf4d895ccbb6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>SOS Homophobie : </strong>Ligne d&#x27;écoute nationale anonyme : 01 48 06 42 41,</li></ul><h2 id="3cfae6fd-182f-802c-81d2-ea55a8962e80" class="" dir="auto">Situation de harcèlement :</h2><ul id="3cfae6fd-182f-804f-abce-ff5dc6abcd7f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Numéro d’écoute national, 3020 :</strong> pour les victimes de harcèlement en milieu scolaire ;</li></ul><ul id="3cfae6fd-182f-80f8-ac07-c1f01cf73ea4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Numéro d’écoute national, 3018 :</strong> pour les victimes de cyberharcèlement ;</li></ul><p id="3cfae6fd-182f-80f5-b35f-cf48936012ed" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
